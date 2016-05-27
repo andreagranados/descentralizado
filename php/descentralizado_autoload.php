@@ -18,6 +18,7 @@ class descentralizado_autoload
 	}
 
 	static protected $clases = array(
+            'php_mocovi' => 'php_mocovi.php',
             'abm_ci' => 'extension_toba/componentes/abm_ci.php',
 		'descentralizado_ci' => 'extension_toba/componentes/descentralizado_ci.php',
 		'descentralizado_cn' => 'extension_toba/componentes/descentralizado_cn.php',
