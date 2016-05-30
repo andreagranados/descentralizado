@@ -28,4 +28,94 @@ INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, i
 	NULL, --item_id
 	'2'  --item
 );
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3697'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3698'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3699'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3705'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3706'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3708'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3709'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3711'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3712'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3713'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3714'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3715'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3716'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3717'  --item
+);
+INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
+	'descentralizado', --proyecto
+	'admin', --usuario_grupo_acc
+	NULL, --item_id
+	'3718'  --item
+);
 --- FIN Grupo de desarrollo 0

@@ -3,52 +3,58 @@
 class dt_mocovi_descentralizado_presupuesto_general extends toba_datos_tabla {
 
     function get_listado($where=null) {
-/*
-        $id_periodo_actual = php_mocovi::instancia()->periodo_a_presupuestar();
-        $sql = "   Delete from presupuesto_general where id_periodo=$id_periodo_actual -- actual 2016
-  and id_objeto_del_gasto in (4,5,6);
 
- insert into presupuesto_general (id_periodo,id_unidad,inciso,id_objeto_del_gasto,monto)
- Select pc.id_periodo,pc.id_unidad,
+        $id_periodo_actual = php_mocovi::instancia()->periodo_a_presupuestar();
+        $sql = "
+                Delete from mocovi_descentralizado_presupuesto_general where id_periodo=$id_periodo_actual 
+-- actual 2017
+  and id_objeto_del_gasto in (4,5,6,80);
+
+ insert into mocovi_descentralizado_presupuesto_general (id_periodo,id_unidad,id_programa, id_tipo_gasto, id_fuente,inciso,id_objeto_del_gasto,monto)
+  Select pc.id_periodo,pc.id_unidad,pc.id_programa,pc.id_tipo_gasto,pc.id_fuente,
  5832 as inciso,
   case pc.id_escalafon
-  when 1 Then 4
-  when 2 Then 5
-  when 3 Then 6
+  when 'D' Then 4
+  when 'N' Then 5
+  when 'S' Then 6
+  when 'C' Then 80
   end as id_objeto_del_gasto 
- ,sum(cc.costo*pc.cantidad*e.indice*13*1.274)
+ ,sum(cc.costo_costo*pc.cantidad*13)
    from
 (
-select id_periodo,id_unidad,id_escalafon,id_categoria,sum(cantidad) as cantidad
+select id_periodo,id_unidad,id_programa,id_tipo_gasto,id_fuente,id_escalafon,id_categoria,sum(cantidad) as cantidad
 from (
-select id_presupuesto_cargos,id_periodo,id_unidad,id_escalafon, id_categoria,cantidad
-from presupuesto_cargos
-where id_periodo=$id_periodo_actual
+select id_cargo,id_periodo,id_unidad,id_programa,id_tipo_gasto,id_fuente,id_escalafon, id_categoria,cantidad
+from mocovi_descentralizado_cargos
+where id_periodo=$id_periodo_actual and not contratado
 Union
-select id_presupuesto_permutas,id_periodo,id_unidad,id_escalafon,id_categoria,cantidad as cantidad
-from presupuesto_permutas
+select id_cargo,id_periodo,id_unidad,id_programa,id_tipo_gasto,id_fuente,'C', id_categoria,cantidad
+from mocovi_descentralizado_cargos
+where id_periodo=$id_periodo_actual and  contratado
+Union
+select id_permutas,id_periodo,id_unidad,id_programa,id_tipo_gasto,11,id_escalafon,id_categoria,cantidad  as cantidad
+from mocovi_descentralizado_permutas
 where id_tipo_permuta=1 --Cede
 and id_periodo=$id_periodo_actual
 Union
-select id_presupuesto_permutas,id_periodo,id_unidad,id_escalafon,id_categoria,cantidad * (-1) as cantidad
-from presupuesto_permutas
+select id_permutas,id_periodo,id_unidad,id_programa,id_tipo_gasto,11,id_escalafon,id_categoria,cantidad * (-1) as cantidad
+from mocovi_descentralizado_permutas
 where id_tipo_permuta=2 --Recibe
 and id_periodo=$id_periodo_actual
 
 ) a
 
 
-group by id_periodo,id_escalafon,id_unidad,id_categoria
+group by id_periodo,id_escalafon,id_unidad,id_programa,id_tipo_gasto,id_fuente,id_categoria
 --order by id_periodo,id_escalafon,id_unidad,id_categoria
 ) pc
-inner join costo_categoria cc on pc.id_periodo=cc.id_periodo+1 and pc.id_categoria=cc.id_categoria
-inner join escalafon e on pc.id_escalafon=e.id_escalafon
+inner join mocovi_costo_categoria cc on pc.id_periodo=cc.id_periodo and pc.id_categoria=cc.codigo_siu
+--inner join escalafon e on pc.id_escalafon=e.id_escalafon
 
-group by pc.id_periodo,pc.id_unidad,pc.id_escalafon";
+group by pc.id_periodo,pc.id_unidad,pc.id_programa,pc.id_tipo_gasto,pc.id_fuente,pc.id_escalafon";
 
-        toba::db('mocovi_dev')->ejecutar($sql);
- * 
- */
+        toba::db('descentralizado')->ejecutar($sql);
+ 
         if (is_null($where)) {
             $where = '';
         } else {

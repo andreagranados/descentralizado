@@ -22,4 +22,20 @@ class ci_politica extends abm_ci {
         }
     }
 
+    function evt__formulario__alta($datos) {
+        /*
+         * todo: el periodo por defecto
+         */
+        $this->dep('datos')->tabla($this->nombre_tabla)->set($datos);
+        $this->dep('datos')->sincronizar();
+        toba::notificacion()->agregar('El registro ha sido creado correctamente', 'info');
+        $this->resetear();
+    }
+
+    function evt__formulario__modificacion($datos) {
+        $this->dep('datos')->tabla($this->nombre_tabla)->set($datos);
+        $this->dep('datos')->sincronizar();
+        toba::notificacion()->agregar('El registro ha sido modificado correctamente', 'info');
+        $this->resetear();
+    }
 }

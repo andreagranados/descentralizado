@@ -4,7 +4,7 @@ class dt_mocovi_periodo_presupuestario extends toba_datos_tabla
     
         static function get_periodo_a_presupuestar(){
         	$sql = "SELECT * FROM mocovi_periodo_presupuestario where presupuestando is true";
-		return toba::db('mocovi_dev')->consultar($sql);
+		return toba::db('descentralizado')->consultar($sql);
         }
         
 	function get_descripciones()
