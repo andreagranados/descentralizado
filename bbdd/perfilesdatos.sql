@@ -31,3 +31,6 @@ insert into apex_usuario_perfil_datos (proyecto,nombre,descripcion,listar) value
 ,('descentralizado','DPOS ',null,null)
 ,('descentralizado','BICE ',null,null)
 ,('descentralizado','MECO ',null,null);
+
+insert into apex_usuario_perfil_datos_dims (proyecto,usuario_perfil_datos,dimension,clave)
+select 'descentralizado', usuario_perfil_datos, 15, nombre from apex_usuario_perfil_datos where usuario_perfil_datos>28 and usuario_perfil_datos<70;
