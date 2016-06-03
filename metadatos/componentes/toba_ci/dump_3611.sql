@@ -162,7 +162,9 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'pant_cuadro', --identificador
 	'1', --orden
 	'Cuadro', --etiqueta
-	NULL, --descripcion
+	'En todos los casos de Nuevas Acciones detallar brevemente en <b>F1 Política</b> y además cuando se trate 4.0.2 Construcciones, en los casos de que se trate de:
+<br>a- <b>Obra nueva</b> presentar toda la documentación detallada en la <b>Secretaria de Planificación</b>.
+<br>b- <b>Mantenimiento y/o reparación</b> presentar toda la documentación detallada en la <b>Subsecretaria de Administración y Servicios</b>.', --descripcion
 	NULL, --tip
 	'apex', --imagen_recurso_origen
 	NULL, --imagen
@@ -181,7 +183,9 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'pant_edicion', --identificador
 	'2', --orden
 	'Edicion', --etiqueta
-	NULL, --descripcion
+	'En todos los casos de Nuevas Acciones detallar brevemente en <b>F1 Política</b> y además cuando se trate 4.0.2 Construcciones, en los casos de que se trate de:
+<br>a- <b>Obra nueva</b> presentar toda la documentación detallada en la <b>Secretaria de Planificación</b>.
+<br>b- <b>Mantenimiento y/o reparación</b> presentar toda la documentación detallada en la <b>Subsecretaria de Administración y Servicios</b>.', --descripcion
 	NULL, --tip
 	'apex', --imagen_recurso_origen
 	NULL, --imagen
@@ -191,7 +195,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	NULL, --subclase_archivo
 	NULL, --template
 	NULL, --template_impresion
-	NULL  --punto_montaje
+	'24'  --punto_montaje
 );
 --- FIN Grupo de desarrollo 0
 
@@ -202,7 +206,7 @@ INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id)
 	'descentralizado', --proyecto
 	'1542', --pantalla
 	'3611', --objeto_ci
-	'1', --orden
+	'0', --orden
 	'2399'  --dep_id
 );
 INSERT INTO apex_objetos_pantalla (proyecto, pantalla, objeto_ci, orden, dep_id) VALUES (

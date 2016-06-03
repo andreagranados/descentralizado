@@ -56,7 +56,7 @@ group by pc.id_periodo,pc.id_unidad,pc.id_programa,pc.id_tipo_gasto,pc.id_fuente
         toba::db('descentralizado')->ejecutar($sql);
  
         if (is_null($where)) {
-            $where = '';
+            $where = 'where t_p.id_periodo='.$id_periodo_actual;
         } else {
             $where = ' where ' . $where;
         }
