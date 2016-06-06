@@ -1,9 +1,15 @@
 <?php
-class dt_mocovi_descentralizado_permutas extends toba_datos_tabla
-{
-	function get_listado()
-	{
-		$sql = "SELECT
+
+class dt_mocovi_descentralizado_permutas extends toba_datos_tabla {
+
+    function get_listado($where = null) {
+        $id_periodo_actual = php_mocovi::instancia()->periodo_a_presupuestar();
+        if (is_null($where)) {
+            $where = 'where t_mdp.id_periodo=' . $id_periodo_actual;
+        } else {
+            $where = ' where ' . $where;
+        }
+        $sql = "SELECT
 			t_mdp.id_permutas,
                         t_mdp.id_unidad,
                         t_mdp.id_unidad_permuta,
@@ -29,12 +35,12 @@ class dt_mocovi_descentralizado_permutas extends toba_datos_tabla
 			LEFT OUTER JOIN mocovi_programa as t_mp ON (t_mdp.id_programa = t_mp.id_programa)
 			--LEFT OUTER JOIN unidad_acad as t_ua1 ON (t_mdp.id_unidad_permuta = t_ua1.sigla)
 			LEFT OUTER JOIN mocovi_programa as t_mp2 ON (t_mdp.id_programa_permuta = t_mp2.id_programa)
+                $where
 		ORDER BY descripcion";
-                $sql = toba::perfil_de_datos()->filtrar($sql);
-		return toba::db('descentralizado')->consultar($sql);
-	}
 
 
-
+        $sql = toba::perfil_de_datos()->filtrar($sql);
+        return toba::db('descentralizado')->consultar($sql);
+    }
 
 }

@@ -32,8 +32,8 @@ class dt_mocovi_descentralizado_cargos extends toba_datos_tabla {
 			LEFT OUTER JOIN mocovi_descentralizado_tipo_gasto as t_mdtg ON (t_mdc.id_tipo_gasto = t_mdtg.id_tipo_gasto)
 			LEFT OUTER JOIN escalafon as t_e ON (t_mdc.id_escalafon = t_e.id_escalafon)
                         $where
-		ORDER BY t_mdc.id_categoria,
-                        t_mdc.id_escalafon";
+		ORDER BY t_mdc.id_escalafon,t_mdc.id_categoria
+                        ";
         $sql = toba::perfil_de_datos()->filtrar($sql);
         return toba::db('descentralizado')->consultar($sql);
     }
