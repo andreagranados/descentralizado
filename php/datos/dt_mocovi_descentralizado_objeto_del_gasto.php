@@ -24,8 +24,7 @@ class dt_mocovi_descentralizado_objeto_del_gasto extends toba_datos_tabla
 	}
 
         function get_descripciones_partidas_todas($inciso='NULL')
-	{
-           
+	{  
 		$sql = "SELECT id_objeto_del_gasto,
 			 substring(codigo_completo from 0 for 6) || '.' ||nombre as nombre FROM mocovi_descentralizado_objeto_del_gasto
                         where elemento_padre=$inciso
@@ -37,7 +36,6 @@ class dt_mocovi_descentralizado_objeto_del_gasto extends toba_datos_tabla
         
         function get_descripciones_partidas($inciso='NULL')
 	{
-           
 		$sql = "SELECT id_objeto_del_gasto,
 			 substring(codigo_completo from 0 for 6) || '.' ||nombre as nombre FROM mocovi_descentralizado_objeto_del_gasto
                         where elemento_padre=$inciso

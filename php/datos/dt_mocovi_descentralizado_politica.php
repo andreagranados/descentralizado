@@ -10,7 +10,7 @@ class dt_mocovi_descentralizado_politica extends toba_datos_tabla
 			t_mdp.politica
 		FROM
 			mocovi_descentralizado_politica as t_mdp	LEFT OUTER JOIN mocovi_periodo_presupuestario as t_mpp ON (t_mdp.id_periodo = t_mpp.id_periodo)
-			LEFT OUTER JOIN unidad_acad as t_ua ON (t_mdp.id_unidad = t_ua.sigla)
+			inner JOIN unidad_acad as t_ua ON (t_mdp.id_unidad = t_ua.sigla)
                 WHERE t_mpp.presupuestando is true
 		ORDER BY politica";
                 $sql=toba::perfil_de_datos()->filtrar($sql);
