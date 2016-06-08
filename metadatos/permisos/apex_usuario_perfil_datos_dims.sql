@@ -256,4 +256,11 @@ INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dime
 	'83', --elemento
 	'RADI '  --clave
 );
+INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dimension, elemento, clave) VALUES (
+	'descentralizado', --proyecto
+	'62', --usuario_perfil_datos
+	'15', --dimension
+	'84', --elemento
+	'CSUP '  --clave
+);
 --- FIN Grupo de desarrollo 0
