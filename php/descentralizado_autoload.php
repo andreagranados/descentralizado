@@ -20,6 +20,7 @@ class descentralizado_autoload
 	static protected $clases = array(
             'php_mocovi' => 'php_mocovi.php',
             'abm_ci' => 'extension_toba/componentes/abm_ci.php',
+            'descentralizado_abm_ci' => 'extension_toba/componentes/descentralizado_abm_ci.php',
 		'descentralizado_ci' => 'extension_toba/componentes/descentralizado_ci.php',
 		'descentralizado_cn' => 'extension_toba/componentes/descentralizado_cn.php',
 		'descentralizado_datos_relacion' => 'extension_toba/componentes/descentralizado_datos_relacion.php',

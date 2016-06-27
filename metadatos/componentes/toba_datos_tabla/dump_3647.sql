@@ -139,4 +139,18 @@ INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, colum
 	'0', --externa
 	'mocovi_costo_categoria'  --tabla
 );
+INSERT INTO apex_objeto_db_registros_col (objeto_proyecto, objeto, col_id, columna, tipo, pk, secuencia, largo, no_nulo, no_nulo_db, externa, tabla) VALUES (
+	'descentralizado', --objeto_proyecto
+	'3647', --objeto
+	'1555', --col_id
+	'costo_costo', --columna
+	'N', --tipo
+	'0', --pk
+	'', --secuencia
+	NULL, --largo
+	NULL, --no_nulo
+	'0', --no_nulo_db
+	'0', --externa
+	'mocovi_costo_categoria'  --tabla
+);
 --- FIN Grupo de desarrollo 0
