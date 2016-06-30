@@ -263,4 +263,32 @@ INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dime
 	'84', --elemento
 	'CSUP '  --clave
 );
+INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dimension, elemento, clave) VALUES (
+	'descentralizado', --proyecto
+	'63', --usuario_perfil_datos
+	'16', --dimension
+	'85', --elemento
+	'N'  --clave
+);
+INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dimension, elemento, clave) VALUES (
+	'descentralizado', --proyecto
+	'63', --usuario_perfil_datos
+	'17', --dimension
+	'86', --elemento
+	'2'  --clave
+);
+INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dimension, elemento, clave) VALUES (
+	'descentralizado', --proyecto
+	'64', --usuario_perfil_datos
+	'16', --dimension
+	'87', --elemento
+	'D'  --clave
+);
+INSERT INTO apex_usuario_perfil_datos_dims (proyecto, usuario_perfil_datos, dimension, elemento, clave) VALUES (
+	'descentralizado', --proyecto
+	'64', --usuario_perfil_datos
+	'17', --dimension
+	'88', --elemento
+	'2'  --clave
+);
 --- FIN Grupo de desarrollo 0

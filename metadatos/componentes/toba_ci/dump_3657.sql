@@ -119,7 +119,7 @@ INSERT INTO apex_objeto_ci_pantalla (objeto_ci_proyecto, objeto_ci, pantalla, id
 	'descentralizado', --objeto_ci_proyecto
 	'3657', --objeto_ci
 	'1556', --pantalla
-	'pant_inicial', --identificador
+	'pant_cuadro', --identificador
 	'1', --orden
 	'Pantalla Inicial', --etiqueta
 	NULL, --descripcion

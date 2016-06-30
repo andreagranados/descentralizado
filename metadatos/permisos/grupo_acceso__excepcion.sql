@@ -16,3 +16,17 @@ INSERT INTO apex_usuario_grupo_acc (proyecto, usuario_grupo_acc, nombre, nivel_a
 	'0', --permite_edicion
 	NULL  --menu_usuario
 );
+
+------------------------------------------------------------
+-- apex_grupo_acc_restriccion_funcional
+------------------------------------------------------------
+INSERT INTO apex_grupo_acc_restriccion_funcional (proyecto, usuario_grupo_acc, restriccion_funcional) VALUES (
+	'descentralizado', --proyecto
+	'excepcion', --usuario_grupo_acc
+	'2'  --restriccion_funcional
+);
+INSERT INTO apex_grupo_acc_restriccion_funcional (proyecto, usuario_grupo_acc, restriccion_funcional) VALUES (
+	'descentralizado', --proyecto
+	'excepcion', --usuario_grupo_acc
+	'3'  --restriccion_funcional
+);

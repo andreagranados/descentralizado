@@ -12,6 +12,17 @@ class ci_informe_cargos extends  abm_ci
         } 
         
     }
+    
+    function evt__cuadro__check($datos) {
+        
+        $this->dep('datos')->cargar($datos);
+
+        $datos=$this->dep('datos')->tabla($this->nombre_tabla)->get();
+        $datos['ck']=!$datos['ck'];
+        $this->dep('datos')->tabla($this->nombre_tabla)->set($datos);
+        $this->dep('datos')->sincronizar();
+       // $this->resetear();
+    }
 
 }
 

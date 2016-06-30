@@ -4,10 +4,10 @@
 ------------------------------------------------------------
 INSERT INTO apex_usuario_grupo_acc (proyecto, usuario_grupo_acc, nombre, nivel_acceso, descripcion, vencimiento, dias, hora_entrada, hora_salida, listar, permite_edicion, menu_usuario) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
-	'Obras', --nombre
+	'ckcargos', --usuario_grupo_acc
+	'Chequeo de Cargos', --nombre
 	NULL, --nivel_acceso
-	NULL, --descripcion
+	'Chequea Cargos Nuevas Acciones', --descripcion
 	NULL, --vencimiento
 	NULL, --dias
 	NULL, --hora_entrada
@@ -24,45 +24,45 @@ INSERT INTO apex_usuario_grupo_acc (proyecto, usuario_grupo_acc, nombre, nivel_a
 --- INICIO Grupo de desarrollo 0
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
 	'1'  --item
 );
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
 	'2'  --item
 );
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
 	'3711'  --item
 );
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
 	'3712'  --item
 );
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
 	'3713'  --item
 );
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
 	'3719'  --item
 );
 INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, item) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
+	'ckcargos', --usuario_grupo_acc
 	NULL, --item_id
-	'3720'  --item
+	'3721'  --item
 );
 --- FIN Grupo de desarrollo 0
 
@@ -71,6 +71,6 @@ INSERT INTO apex_usuario_grupo_acc_item (proyecto, usuario_grupo_acc, item_id, i
 ------------------------------------------------------------
 INSERT INTO apex_grupo_acc_restriccion_funcional (proyecto, usuario_grupo_acc, restriccion_funcional) VALUES (
 	'descentralizado', --proyecto
-	'obras', --usuario_grupo_acc
-	'2'  --restriccion_funcional
+	'ckcargos', --usuario_grupo_acc
+	'3'  --restriccion_funcional
 );
