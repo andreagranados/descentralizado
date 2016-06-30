@@ -21,4 +21,5 @@ class ci_generales extends descentralizado_abm_ci {
         }
     }
 
+
 }

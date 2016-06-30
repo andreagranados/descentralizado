@@ -49,4 +49,19 @@ INSERT INTO apex_dimension (proyecto, dimension, nombre, descripcion, schema, ta
 	'descentralizado', --fuente_datos_proyecto
 	'descentralizado'  --fuente_datos
 );
+INSERT INTO apex_dimension (proyecto, dimension, nombre, descripcion, schema, tabla, col_id, col_desc, col_desc_separador, multitabla_col_tabla, multitabla_id_tabla, fuente_datos_proyecto, fuente_datos) VALUES (
+	'descentralizado', --proyecto
+	'18', --dimension
+	'objetodelgasto', --nombre
+	NULL, --descripcion
+	NULL, --schema
+	'mocovi_descentralizado_objeto_del_gasto', --tabla
+	'id_objeto_del_gasto', --col_id
+	'codigo_completo,nombre', --col_desc
+	NULL, --col_desc_separador
+	NULL, --multitabla_col_tabla
+	NULL, --multitabla_id_tabla
+	'descentralizado', --fuente_datos_proyecto
+	'descentralizado'  --fuente_datos
+);
 --- FIN Grupo de desarrollo 0

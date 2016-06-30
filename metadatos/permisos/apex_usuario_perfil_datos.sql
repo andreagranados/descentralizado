@@ -277,4 +277,11 @@ INSERT INTO apex_usuario_perfil_datos (proyecto, usuario_perfil_datos, nombre, d
 	'Solo Docente Nuevas Acciones', --descripcion
 	NULL  --listar
 );
+INSERT INTO apex_usuario_perfil_datos (proyecto, usuario_perfil_datos, nombre, descripcion, listar) VALUES (
+	'descentralizado', --proyecto
+	'65', --usuario_perfil_datos
+	'Construcciones', --nombre
+	NULL, --descripcion
+	NULL  --listar
+);
 --- FIN Grupo de desarrollo 0

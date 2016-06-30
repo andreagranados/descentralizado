@@ -125,4 +125,15 @@ INSERT INTO apex_dimension_gatillo (proyecto, dimension, gatillo, tipo, orden, t
 	NULL, --tabla_gatillo
 	NULL  --ruta_tabla_rel_dim
 );
+INSERT INTO apex_dimension_gatillo (proyecto, dimension, gatillo, tipo, orden, tabla_rel_dim, columnas_rel_dim, tabla_gatillo, ruta_tabla_rel_dim) VALUES (
+	'descentralizado', --proyecto
+	'18', --dimension
+	'33', --gatillo
+	'directo', --tipo
+	'1', --orden
+	'mocovi_descentralizado_presupuesto_general', --tabla_rel_dim
+	'id_objeto_del_gasto', --columnas_rel_dim
+	NULL, --tabla_gatillo
+	NULL  --ruta_tabla_rel_dim
+);
 --- FIN Grupo de desarrollo 0

@@ -12,7 +12,31 @@ class ci_informe_general extends  abm_ci
         } 
         
     }
+    
+     function evt__cuadro__check($datos) {
+        
+        $this->dep('datos')->cargar($datos);
 
+        $datos=$this->dep('datos')->tabla($this->nombre_tabla)->get();
+        $datos['ck']=!$datos['ck'];
+        //ei_arbol($datos);
+        $this->dep('datos')->tabla($this->nombre_tabla)->set($datos);
+        $this->dep('datos')->sincronizar();
+        $this->resetear();
+    }
+     public function evt__formulario__alta($datos) {
+        $datos['inciso']=5835;//Bienes de Uso
+        $datos['id_objeto_del_gasto']=34;//construcciones
+        
+        parent::evt__formulario__alta($datos);
+    }
+    
+    public function evt__formulario__modificacion($datos) {
+       $datos['inciso']=5835;//Bienes de Uso
+        $datos['id_objeto_del_gasto']=34;//construcciones
+        
+        parent::evt__formulario__modificacion($datos);
+    }
 }
 
 

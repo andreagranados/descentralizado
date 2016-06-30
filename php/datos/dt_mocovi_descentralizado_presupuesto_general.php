@@ -73,14 +73,15 @@ group by pc.id_periodo,pc.id_unidad,pc.id_programa,pc.id_tipo_gasto,pc.id_fuente
                         t_odg.codigo_completo,
 			t_odg.nombre as id_objeto_del_gasto_nombre,
                         t_p.id_fuente,
-			t_p.monto
+			t_p.monto,  
+                        t_p.ck
 		FROM
 			mocovi_descentralizado_presupuesto_general as t_p
                         inner JOIN mocovi_periodo_presupuestario as t_p1 ON (t_p.id_periodo = t_p1.id_periodo)
 			--inner JOIN unidad_acad as t_u ON (t_p.id_unidad = t_u.sigla)
                         inner join mocovi_programa as t_pp on (t_p.id_programa = t_pp.id_programa)
                         inner join mocovi_descentralizado_tipo_gasto as t_tg on (t_p.id_tipo_gasto=t_tg.id_tipo_gasto)
-			LEFT OUTER JOIN mocovi_descentralizado_objeto_del_gasto as t_odg ON (t_p.id_objeto_del_gasto = t_odg.id_objeto_del_gasto)
+			inner JOIN mocovi_descentralizado_objeto_del_gasto as t_odg ON (t_p.id_objeto_del_gasto = t_odg.id_objeto_del_gasto)
                         Left outer join mocovi_descentralizado_objeto_del_gasto as t_odg2 on t_odg.elemento_padre=t_odg2.elemento
                         $where
                         order by t_odg.codigo_completo";
