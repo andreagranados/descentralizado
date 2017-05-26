@@ -3,11 +3,12 @@ class dt_mocovi_descentralizado_ingresos extends toba_datos_tabla
 {
 	function get_listado($where=null)
 	{
-            if(!is_null($where)){
-                $where=' Where '.$where;
-            }else{
-                $where='';
-            }
+            $id_periodo_actual = php_mocovi::instancia()->periodo_a_presupuestar();
+        if (is_null($where)) {
+            $where = 'where t_mpp.id_periodo=' . $id_periodo_actual;
+        } else {
+            $where = ' where ' . $where;
+        }
 		$sql = "SELECT
 			t_mdi.id_ingresos,
 			t_mpp.anio as id_periodo_nombre,
