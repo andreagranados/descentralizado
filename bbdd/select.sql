@@ -1,1 +1,0 @@
-select * from mocovi_descentralizado_tipo_gasto
