@@ -21,7 +21,7 @@ class abm_ci extends toba_ci {
     //-----------------------------------------------------------------------------------
 
     /**
-     * Permite cambiar la configuración del formulario previo a la generación de la salida
+     * Permite cambiar la configuraciï¿½n del formulario previo a la generaciï¿½n de la salida
      * El formato del carga debe ser array(<campo> => <valor>, ...)
      */
     function conf__filtro(toba_ei_filtro $filtro) {
@@ -30,8 +30,8 @@ class abm_ci extends toba_ci {
     }
 
     /**
-     * Atrapa la interacción del usuario con el botón asociado
-     * @param array $datos Estado del componente al momento de ejecutar el evento. El formato es el mismo que en la carga de la configuración
+     * Atrapa la interacciï¿½n del usuario con el botï¿½n asociado
+     * @param array $datos Estado del componente al momento de ejecutar el evento. El formato es el mismo que en la carga de la configuraciï¿½n
      */
     function evt__filtro__filtrar($datos) {
         $this->s__where = $this->dep('filtro')->get_sql_where();
@@ -39,7 +39,7 @@ class abm_ci extends toba_ci {
     }
 
     /**
-     * Atrapa la interacción del usuario con el botón asociado
+     * Atrapa la interacciï¿½n del usuario con el botï¿½n asociado
      */
     function evt__filtro__cancelar() {
         
@@ -50,8 +50,8 @@ class abm_ci extends toba_ci {
     }
 
     function evt__cuadro__seleccion($datos) {
-        $this->set_pantalla('pant_edicion');
-        $this->dep('datos')->cargar($datos);
+           $this->set_pantalla('pant_edicion');
+           $this->dep('datos')->cargar($datos); 
     }
 
     //---- Formulario -------------------------------------------------------------------

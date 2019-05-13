@@ -3,14 +3,14 @@
 class tp_mocovi_login extends toba_tp_logon {
 
     function pre_contenido()
-	{
-		echo "<div class='login-titulo'>". toba_recurso::imagen_proyecto("logo.gif",true);
-                
+	{ 
+		echo "<div class='login-titulo'>".toba_recurso::imagen_proyecto("logo.gif",true);
+               // echo "<div class='login-titulo'>".toba::proyecto()->get_path().'/img/logo.gif';
                 echo "<div>";
                 php_mocovi::instancia()->mensaje();
                 echo "</div>";
 
-		echo "<div>versión ".toba::proyecto()->get_version();
+		echo "<div>versi&oacute;n ".toba::proyecto()->get_version();
                 echo " <a href='manual.pdf'>Descargar Manual Ayuda</a>" ."</div>";
 		echo "</div>";
 		echo "<div align='center' class='cuerpo'>";		

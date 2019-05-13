@@ -23,7 +23,7 @@ class descentralizado_abm_ci extends abm_ci
             }
         }
         if (!$excepcion) {
-            toba::notificacion()->agregar('Acceso de solo Lectura.  Se ha cerrado la carga de la información. ', 'info');
+            toba::notificacion()->agregar('Acceso de solo Lectura.  Se ha cerrado la carga de la informaciï¿½n. ', 'info');
         }
         return !$excepcion;
     }
@@ -42,8 +42,21 @@ class descentralizado_abm_ci extends abm_ci
               if ($this->chequeo_solo_lectura()) {
                   $this->resetear();
               }else{
-                $this->set_pantalla('pant_edicion');
-		$this->dep('datos')->cargar($datos);
+                  //--nuevo--
+                  $band=true;
+                  if($this->nombre_tabla=='mocovi_descentralizado_cargos'){
+                      $tipo=$this->dep('datos')->tabla($this->nombre_tabla)->get_tipo($datos['id_cargo']);
+                      if($tipo==1){//si es un servicio existente
+                          $band=false;
+                      }
+                  }
+                  if($band){
+                    $this->set_pantalla('pant_edicion');
+                    $this->dep('datos')->cargar($datos);
+                  }else{
+                      toba::notificacion()->agregar('No puede modificar el Servicio Existente precargado por Direccion de Presupuesto', 'info');
+                  }
+               
               }
 	}
 

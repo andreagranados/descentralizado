@@ -20,6 +20,9 @@ class ci_login extends toba_ci
 			toba::proyecto()->set_parametro('item_inicio_sesion', $item_original[1]);
 		}
 		$this->s__item_inicio = null;
+		/*if(isset($this->s__datos)) {							//Si hay valores de inicios viejos, se limpian.
+			unset($this->s__datos);
+		}*/
 		if (isset($this->s__datos_openid)) {
 			unset($this->s__datos_openid);
 		}
@@ -38,7 +41,7 @@ class ci_login extends toba_ci
 			}
 		}
 		$tipo_auth = toba::instalacion()->get_tipo_autenticacion();
-		if (toba_autenticacion::es_autenticacion_centralizada($tipo_auth)) {
+		if (in_array($tipo_auth, array('cas','saml'))) {
 			if (! toba::manejador_sesiones()->get_autenticacion()->permite_login_toba()) {
 				$this->evt__cas__ingresar();
 			}
@@ -83,7 +86,6 @@ class ci_login extends toba_ci
 			break;
 		case 'cas':
 		case 'saml':
-		case 'saml_onelogin':
 			if (! toba::manejador_sesiones()->get_autenticacion()->permite_login_toba() && $this->pantalla()->existe_dependencia('datos')) {
 				$this->pantalla()->eliminar_dep('datos');
 			}
@@ -132,9 +134,9 @@ class ci_login extends toba_ci
 				toba::memoria()->eliminar_dato_instancia('toba_intentos_fallidos_login');
 			}
 			//-- Se redirige solo si no es popup
-			/*if (! $this->en_popup) {
+			if (! $this->en_popup) {
 				throw $reset;
-			}*/
+			}
 			$this->s__item_inicio = $reset->get_item();	//Se guarda el item de inicio al que queria derivar el nucleo
 		}
 		return;
@@ -154,12 +156,12 @@ class ci_login extends toba_ci
 			$usuario = (isset($this->s__datos['usuario'])) ? $this->s__datos['usuario'] : '';
 			$clave = (isset($this->s__datos['clave'])) ? $this->s__datos['clave'] : '';
 
-			if (toba_autenticacion::es_autenticacion_centralizada($tipo_auth)) {
+			if (in_array($tipo_auth, array('cas','saml'))) {
 				toba::manejador_sesiones()->get_autenticacion()->usar_login_basico();
 			}			
 			toba::manejador_sesiones()->login($usuario, $clave);
 
-		} elseif (toba_autenticacion::es_autenticacion_centralizada($tipo_auth) && toba::manejador_sesiones()->get_autenticacion()->uso_login_centralizado()) {	//El control por session es para que no redireccione automaticamente
+		} elseif (in_array($tipo_auth, array('cas','saml')) && toba::manejador_sesiones()->get_autenticacion()->uso_login_centralizado()) {	//El control por session es para que no redireccione automaticamente
 			toba::manejador_sesiones()->get_autenticacion()->verificar_acceso();
 		}	
 	}	
@@ -270,9 +272,6 @@ class ci_login extends toba_ci
 
 	function conf__form_passwd_vencido($form)
 	{
-		$largo_clave =  toba_parametros::get_largo_pwd(toba::proyecto()->get_id());
-		$form->ef('clave_nueva')->set_expreg(toba_usuario::get_exp_reg_pwd($largo_clave));
-		$form->ef('clave_nueva')->set_descripcion("La clave debe tener al menos $largo_clave caracteres, entre letras mayúsculas, minúsculas, números y símbolos, no pudiendo repetir caracteres adyacentes");
 		$form->set_datos(array());
 	}
 	
@@ -280,24 +279,22 @@ class ci_login extends toba_ci
 	{
 		$usuario = $this->s__datos['usuario'];		
 		if (toba::manejador_sesiones()->invocar_autenticar($usuario, $datos['clave_anterior'], null)) {		//Si la clave anterior coincide	
-			 $proyecto = toba::proyecto()->get_id();
 			//Verifico que no intenta volver a cambiarla antes del periodo permitido
-			$dias_minimos = toba_parametros::get_clave_validez_minima($proyecto);
+			$dias_minimos = toba::proyecto()->get_parametro('proyecto', 'dias_minimos_validez_clave', false);
 			if (! is_null($dias_minimos)) {
 				if (! toba_usuario::verificar_periodo_minimo_cambio($usuario, $dias_minimos)) {
 					toba::notificacion()->agregar('No transcurrio el período minimo para poder volver a cambiar su contraseña. Intentelo en otra ocasión');
 					return;
 				}
 			}		
-			//Obtengo el largo minimo de la clave			
-			$largo_clave = toba_parametros::get_largo_pwd($proyecto);
+			//Obtengo el largo minimo de la clave
+			$largo_clave = toba::proyecto()->get_parametro('proyecto', 'pwd_largo_minimo', false);
 			try {
 				toba_usuario::verificar_composicion_clave($datos['clave_nueva'], $largo_clave);
 			
 				//Obtengo los dias de validez de la nueva clave
-				$dias = toba_parametros::get_clave_validez_maxima($proyecto);
-				$ultimas_claves = toba_parametros::get_nro_claves_no_repetidas($proyecto);
-				toba_usuario::verificar_clave_no_utilizada($datos['clave_nueva'], $usuario, $ultimas_claves);
+				$dias = toba::proyecto()->get_parametro('proyecto', 'dias_validez_clave', false);
+				toba_usuario::verificar_clave_no_utilizada($datos['clave_nueva'], $usuario);
 				toba_usuario::reemplazar_clave_vencida($datos['clave_nueva'], $usuario, $dias);
 				$this->es_cambio_contrasenia = true;				//Bandera para el post_eventos
 			} catch(toba_error_pwd_conformacion_invalida $e) {
@@ -337,9 +334,18 @@ class ci_login extends toba_ci
 				}
 			";
 		}
-				
-		$finalizar = toba::memoria()->get_parametro(apex_sesion_qs_finalizar);
-		if (is_null($finalizar)) {											//Sesion activa
+		
+		if ($this->en_popup) {
+			$finalizar = toba::memoria()->get_parametro(apex_sesion_qs_finalizar);
+			//Si cierra la sesión y es popup, cierra la ventana y al parent (si existe) lo recarga			
+			if (isset($finalizar)) {
+				echo '
+					if (window.opener &&  window.opener.location) {
+						window.opener.location.href = window.opener.location.href; 
+					}
+					window.close();
+				';
+			}
 			if (toba::manejador_sesiones()->existe_usuario_activo()) {
 				//Si ya esta logueado y se abre el sistema en popup, abrirlo
 				if (isset($this->s__item_inicio)) {
@@ -349,20 +355,10 @@ class ci_login extends toba_ci
 					$item = toba::proyecto()->get_parametro('item_inicio_sesion');
 				}
 				$url = toba::vinculador()->get_url($proyecto, $item);
-				
-				if ($this->en_popup) {
-					echo " abrir_popup('sistema', '$url', {resizable: 1});	";
-				} else {
-					echo " window.location.href = '$url';";
-				}
+				echo "
+					abrir_popup('sistema', '$url', {resizable: 1});
+				";
 			}
-		} elseif ($this->en_popup) {									//Se finaliza la sesion
-				echo '
-					if (window.opener &&  window.opener.location) {
-						window.opener.location.href = window.opener.location.href; 
-					}
-					window.close();
-				';
 		}		
 	}
 }
