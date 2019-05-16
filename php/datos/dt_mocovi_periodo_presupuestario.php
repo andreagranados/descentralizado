@@ -17,7 +17,7 @@ class dt_mocovi_periodo_presupuestario extends toba_datos_tabla
     function get_listado()
 	{
 		$sql = "SELECT * FROM mocovi_periodo_presupuestario
-                         ORDER BY id_periodo";
+                         ORDER BY anio";
 		return toba::db('descentralizado')->consultar($sql);
 	}
 
