@@ -16,11 +16,11 @@ class dt_mocovi_descentralizado_objeto_del_gasto extends toba_datos_tabla
 
 	function get_descripciones()
 	{
-		$sql = "SELECT elemento as inciso,
-			codigo_completo,
-			 codigo || '.' ||nombre as nombre FROM mocovi_descentralizado_objeto_del_gasto
-                        where componente='IN' and presupuestable is true ORDER BY nombre";
-		return toba::db('descentralizado')->consultar($sql);
+            $sql = "SELECT elemento as inciso,
+                    codigo_completo,
+                     codigo || '.' ||nombre as nombre FROM mocovi_descentralizado_objeto_del_gasto
+                    where componente='IN' and presupuestable is true  ORDER BY nombre";
+            return toba::db('descentralizado')->consultar($sql);
 	}
 
         function get_descripciones_partidas_todas($inciso='NULL')
