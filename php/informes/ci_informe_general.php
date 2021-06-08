@@ -13,7 +13,7 @@ class ci_informe_general extends  abm_ci
         
     }
     
-     function evt__cuadro__check($datos) {
+    function evt__cuadro__check($datos) {
         
         $this->dep('datos')->cargar($datos);
 

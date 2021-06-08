@@ -490,7 +490,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	NULL, --inicializacion
 	'0', --permitir_html
 	'0', --deshabilitar_rest_func
-	'1', --estado_defecto
+	'2', --estado_defecto
 	'0', --solo_lectura
 	'0', --solo_lectura_modificacion
 	'get_descripciones', --carga_metodo
@@ -507,7 +507,7 @@ INSERT INTO apex_objeto_ei_formulario_ef (objeto_ei_formulario_fila, objeto_ei_f
 	'0', --carga_cascada_relaj
 	'0', --cascada_mantiene_estado
 	'0', --carga_permite_no_seteado
-	'Seleccionar ...', --carga_no_seteado
+	'--Seleccion--', --carga_no_seteado
 	'0', --carga_no_seteado_ocultar
 	NULL, --edit_tamano
 	NULL, --edit_maximo
