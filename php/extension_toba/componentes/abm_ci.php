@@ -66,6 +66,9 @@ class abm_ci extends toba_ci {
         /*
          * todo: el periodo por defecto
          */
+        if($this->nombre_tabla=='mocovi_descentralizado_cargos'){
+             $datos['precargado']=false;
+         }
         $this->dep('datos')->tabla($this->nombre_tabla)->set($datos);
         $this->dep('datos')->sincronizar();
         $this->resetear();

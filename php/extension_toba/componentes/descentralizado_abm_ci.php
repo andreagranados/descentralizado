@@ -45,8 +45,9 @@ class descentralizado_abm_ci extends abm_ci
                   //--nuevo--
                   $band=true;
                   if($this->nombre_tabla=='mocovi_descentralizado_cargos'){
+                      $precarg=$this->dep('datos')->tabla($this->nombre_tabla)->fue_precargado($datos['id_cargo']);
                       $tipo=$this->dep('datos')->tabla($this->nombre_tabla)->get_tipo($datos['id_cargo']);
-                      if($tipo==1){//si es un servicio existente
+                      if($tipo==1 && $precarg){//si es un servicio existente precargado por Presup
                           $band=false;
                       }
                   }

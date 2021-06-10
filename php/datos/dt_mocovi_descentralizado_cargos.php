@@ -43,7 +43,11 @@ class dt_mocovi_descentralizado_cargos extends toba_datos_tabla {
         $resul=toba::db('descentralizado')->consultar($sql);
         return $resul[0]['id_tipo_gasto'];
     }
-
+    function fue_precargado($id_carg){
+        $sql="select precargado from mocovi_descentralizado_cargos where id_cargo=$id_carg";
+        $resul=toba::db('descentralizado')->consultar($sql);
+        return $resul[0]['precargado'];
+    }
 }
 
 ?>
