@@ -42,7 +42,8 @@ class abm_ci extends toba_ci {
      * Atrapa la interacci�n del usuario con el bot�n asociado
      */
     function evt__filtro__cancelar() {
-        
+        unset($this->s__datos_filtro);
+        unset($this->s__where);
     }
 
     function evt__nuevo($datos) {
