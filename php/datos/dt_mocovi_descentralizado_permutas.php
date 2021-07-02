@@ -36,7 +36,7 @@ class dt_mocovi_descentralizado_permutas extends toba_datos_tabla {
 			--LEFT OUTER JOIN unidad_acad as t_ua1 ON (t_mdp.id_unidad_permuta = t_ua1.sigla)
 			LEFT OUTER JOIN mocovi_programa as t_mp2 ON (t_mdp.id_programa_permuta = t_mp2.id_programa)
                 $where
-		ORDER BY descripcion";
+		ORDER BY t_mdp.id_unidad,t_mp.nombre,t_mdp.id_unidad_permuta";
 
 
         $sql = toba::perfil_de_datos()->filtrar($sql);
