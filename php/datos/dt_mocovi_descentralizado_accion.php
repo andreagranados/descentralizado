@@ -10,7 +10,7 @@ class dt_mocovi_descentralizado_accion extends toba_datos_tabla {
                         . " UNION ALL "
                         . "SELECT * "
                         . " FROM mocovi_descentralizado_accion "
-                        . " WHERE descripcion='Otro'";
+                        . " WHERE descripcion='OTRAS ACCIONES'";
 		return toba::db('descentralizado')->consultar($sql);
 	}
 }

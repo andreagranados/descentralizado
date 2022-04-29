@@ -73,6 +73,7 @@ group by pc.id_periodo,pc.id_unidad,pc.id_programa,pc.id_tipo_gasto,pc.id_fuente
                         t_odg.codigo_completo,
 			t_odg.nombre as id_objeto_del_gasto_nombre,
                         t_p.id_fuente,
+                        t_pa.id_accion,
                         t_pa.descripcion as accion,
 			t_p.monto,  
                         t_p.ck
@@ -194,6 +195,7 @@ from (SELECT
                         t_odg2.nombre as inciso_nombre,
                         t_odg2.codigo as inciso_codigo,
                         t_odg.codigo_completo,
+                        t_pa.id_accion,
                         t_pa.descripcion as accion,
 			t_odg.nombre as id_objeto_del_gasto_nombre,
 			t_p.monto
