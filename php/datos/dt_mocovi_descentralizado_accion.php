@@ -5,7 +5,7 @@ class dt_mocovi_descentralizado_accion extends toba_datos_tabla {
 	{
 		$sql = "SELECT * FROM("
                         . " SELECT * FROM mocovi_descentralizado_accion "
-                        . " WHERE descripcion <> 'Otro'"
+                        . " WHERE descripcion <> 'OTRAS ACCIONES'"
                         . " order by descripcion )sub"
                         . " UNION ALL "
                         . "SELECT * "
