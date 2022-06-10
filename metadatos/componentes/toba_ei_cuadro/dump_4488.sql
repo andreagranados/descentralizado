@@ -206,3 +206,14 @@ INSERT INTO apex_objeto_ei_cuadro_columna (objeto_cuadro_proyecto, objeto_cuadro
 	NULL  --evento_asociado
 );
 --- FIN Grupo de desarrollo 0
+
+------------------------------------------------------------
+-- apex_objeto_cuadro_col_cc
+------------------------------------------------------------
+INSERT INTO apex_objeto_cuadro_col_cc (objeto_cuadro_cc, objeto_cuadro_proyecto, objeto_cuadro, objeto_cuadro_col, total) VALUES (
+	'50', --objeto_cuadro_cc
+	'descentralizado', --objeto_cuadro_proyecto
+	'4488', --objeto_cuadro
+	'4834', --objeto_cuadro_col
+	'1'  --total
+);
