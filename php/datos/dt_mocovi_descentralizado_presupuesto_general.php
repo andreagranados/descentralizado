@@ -60,7 +60,7 @@ group by pc.id_periodo,pc.id_unidad,pc.id_programa,pc.id_tipo_gasto,pc.id_fuente
         } else {
             $where = ' where ' . $where;
         }
-
+        
         $sql = "SELECT
 			t_p.id_presupuesto,
                         t_p.descripcion,
